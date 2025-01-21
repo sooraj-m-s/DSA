@@ -31,7 +31,6 @@ class HashTable:
                 self.li[index].remove(i)
                 return
 
-    
 
 h = HashTable()
 h['Name'] = 'Sooraj'

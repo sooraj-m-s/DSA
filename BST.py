@@ -18,18 +18,18 @@ class BST:
         
     def search_val(self, data):
         if self.data == data:
-            print(f'Value {data} is found in the BST.')
+            print(f'Value {data} is present in the BST.')
             return
         if data < self.data:
             if self.lchild:
                 self.lchild.search_val(data)
             else:
-                print(f'Value {data} is not in the BST!')
+                print(f'Value {data} is not present in the BST!')
         else:
             if self.rchild:
                 self.rchild.search_val(data)
             else:
-                print(f'Value {data} is not in the BST!')
+                print(f'Value {data} is not present in the BST!')
     
     def pre_order(self):
         print(self.data, '-->', end=' ')
@@ -69,12 +69,12 @@ class BST:
             if self.lchild:
                 self.lchild = self.lchild.del_value(data)
             else:
-                print(f'Value {data} is not found in the BST!')
+                print(f'Value {data} is not present in the BST!')
         elif data > self.data:
             if self.rchild:
                 self.rchild = self.rchild.del_value(data)
             else:
-                print(f'Value {data} is not found in the BST!')
+                print(f'Value {data} is not present in the BST!')
         else:
             if not self.lchild:
                 return self.rchild
@@ -111,6 +111,17 @@ def get_count(node):
         return 0
     return 1 + get_count(node.lchild) + get_count(node.rchild)
 
+def are_identical(tree1, tree2):
+    if not tree1 and not tree2:
+        return True
+    if not tree1 or not tree2:
+        return False
+    
+    return (
+        tree1.data == tree2.data and
+        are_identical(tree1.lchild, tree2.lchild) and
+        are_identical(tree1.rchild, tree2.rchild)
+    )
 
 bst = BST(10)
 li = [6, 1, 3, 6, 98, 3, 7]
