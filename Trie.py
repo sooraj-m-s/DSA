@@ -30,7 +30,6 @@ class Trie:
                 return False
             current_node = current_node.children[i]
         current_node.is_end = False
-        return
 
     def dfs(self, node, prefix):
         if node.is_end:

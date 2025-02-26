@@ -20,12 +20,12 @@ class BST:
         if self.data == data:
             print(f'Value {data} is present in the BST.')
             return
-        if data < self.data:
+        elif data < self.data:
             if self.lchild:
                 self.lchild.search_val(data)
             else:
                 print(f'Value {data} is not present in the BST!')
-        else:
+        elif data > self.data:
             if self.rchild:
                 self.rchild.search_val(data)
             else:
@@ -86,7 +86,6 @@ class BST:
                 node = node.lchild
             self.data = node.data
             self.rchild = self.rchild.del_value(node.data)
-        return self
 
     def get_min(self):
         node = self
@@ -134,6 +133,8 @@ for i in li:
 # print()
 # bst.get_min()
 # bst.get_max()
+# print('\n', tree_height(bst))
+# bst.del_value(10)
 
 bst.pre_order()
 print()
@@ -142,4 +143,3 @@ print()
 bst.post_order()
 print()
 bst.level_order()
-print('\n', tree_height(bst))
