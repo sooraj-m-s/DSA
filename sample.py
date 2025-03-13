@@ -171,3 +171,16 @@
 
 # s = ''.join(random.sample('asdfsdf', 4))
 # print(s)
+
+
+def flatten(arr):
+    temp = []
+    for i in arr:
+        if isinstance(i, list):
+            temp.extend(flatten(i))
+        else:
+            temp.append(i)
+    return temp
+
+arr = [[1, [1, 2, [1, 2, 3]]], [3, 4], [[1, 2], 6]]
+print(flatten(arr))
