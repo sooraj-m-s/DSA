@@ -152,13 +152,11 @@ class DoublyLinkedList:
             print('Linked list is empty')
             return
         n = self.head
-        while n is not None:
+        while n.nref is not None:
             print(n.data, '-->', end=' ')
             n = n.nref
-        n = self.head
+        print(n.data)
         print('\nReverse')
-        while n.nref is not None:
-            n = n.nref
         while n is not None:
             print(n.data, '-->', end=' ')
             n = n.pref

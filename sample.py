@@ -61,10 +61,10 @@
 # print(num)
 
 
-# s = "My name is sooraj m s"
+# s = "My name is Sooraj m s"
 # count = 0
 # for i in s:
-#     if i in "aeiou":
+#     if i in "AEIOUaeiou":
 #         count += 1
 # print(count)
 
@@ -173,14 +173,14 @@
 # print(s)
 
 
-def flatten(arr):
-    temp = []
-    for i in arr:
-        if isinstance(i, list):
-            temp.extend(flatten(i))
-        else:
-            temp.append(i)
-    return temp
+# def flatten(arr):
+#     temp = []
+#     for i in arr:
+#         if isinstance(i, list):
+#             temp.extend(flatten(i))
+#         else:
+#             temp.append(i)
+#     return temp
 
-arr = [[1, [1, 2, [1, 2, 3]]], [3, 4], [[1, 2], 6]]
-print(flatten(arr))
+# arr = [[1, [1, 2, [1, 2, 3]]], [3, 4], [[1, 2], 6]]
+# print(flatten(arr))

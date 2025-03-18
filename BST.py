@@ -10,7 +10,7 @@ class BST:
                 self.lchild.insert_val(data)
             else:
                 self.lchild = BST(data)
-        elif data >= self.data:
+        else:
             if self.rchild:
                 self.rchild.insert_val(data)
             else:
@@ -25,7 +25,7 @@ class BST:
                 self.lchild.search_val(data)
             else:
                 print(f'Value {data} is not present in the BST!')
-        elif data > self.data:
+        else:
             if self.rchild:
                 self.rchild.search_val(data)
             else:
