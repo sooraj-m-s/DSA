@@ -17,8 +17,10 @@ class MinHeap:
             return None
         if len(self.heap) == 1:
             return self.heap.pop()
+        root = self.heap[0]
         self.heap[0] = self.heap.pop()
         self._heapify_down(0)
+        return root
 
     def _heapify_down(self, index):
         smallest = index
@@ -32,11 +34,13 @@ class MinHeap:
             self.heap[index], self.heap[smallest] = self.heap[smallest], self.heap[index]
             self._heapify_down(smallest)
     
-    def print_sort(self):
-        temp = []
-        while len(self.heap) > 0:
-            temp.append(self.remove())
-        print(temp)
+    def heap_sort(self):
+        sorted_list = []
+        temp_heap = self.heap[:]
+        while self.heap:
+            sorted_list.append(self.remove())
+        self.heap = temp_heap
+        print(sorted_list)
 
 
 min_heap = MinHeap()
@@ -44,34 +48,10 @@ min_heap.insert(10)
 min_heap.insert(5)
 min_heap.insert(20)
 min_heap.insert(2)
-
 print(min_heap.heap)
+
+min_heap.heap_sort()
 # min_heap.remove()
 # print(min_heap.heap)
 # min_heap.print_sort()
 
-
-def heapify(arr, l, index):
-    smallest = index
-    left = 2 * index + 1
-    right = 2 * index + 2
-    if left < l and arr[left] < arr[smallest]:
-        smallest = left
-    if right < l and arr[right] < arr[smallest]:
-        smallest = right
-    if smallest != index:
-        arr[index], arr[smallest] = arr[smallest], arr[index]
-        heapify(arr, l, smallest)
-
-def heap_sort(arr):
-    l = len(arr)
-    for i in range(l//2-1, -1, -1):
-        heapify(arr, l, i)
-    for i in range(l-1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]
-        heapify(arr, i, 0)
-
-
-arr = [4, 10, 3, 5, 1]
-heap_sort(arr)
-print(arr)

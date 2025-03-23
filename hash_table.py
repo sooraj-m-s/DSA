@@ -15,7 +15,7 @@ class HashTable:
             if i[0] == key:
                 i[1] = val
                 return
-        self.li[index].append((key, val))
+        self.li[index].append([key, val])
     
     def __getitem__(self, key):
         index = self.get_hashed(key)

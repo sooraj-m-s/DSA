@@ -86,6 +86,7 @@ class BST:
                 node = node.lchild
             self.data = node.data
             self.rchild = self.rchild.del_value(node.data)
+        return self
 
     def get_min(self):
         node = self
