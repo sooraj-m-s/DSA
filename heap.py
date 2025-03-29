@@ -1,57 +1,49 @@
 class MinHeap:
     def __init__(self):
-        self.heap = []
+        self.li = []
 
     def insert(self, val):
-        self.heap.append(val)
-        self._heapify_up(len(self.heap) - 1)
+        self.li.append(val)
+        self._heapify_up(len(self.li) - 1)
 
     def _heapify_up(self, index):
         parent = (index - 1) // 2
-        if index > 0 and self.heap[index] < self.heap[parent]:
-            self.heap[index], self.heap[parent] = self.heap[parent], self.heap[index]
+        if index > 0 and self.li[index] < self.li[parent]:
+            self.li[index], self.li[parent] = self.li[parent], self.li[index]
             self._heapify_up(parent)
     
     def remove(self):
-        if not self.heap:
+        if not self.li:
             return None
-        if len(self.heap) == 1:
-            return self.heap.pop()
-        root = self.heap[0]
-        self.heap[0] = self.heap.pop()
-        self._heapify_down(0)
-        return root
+        if len(self.li) == 1:
+            return self.li.pop()
+        self.li[0] = self.li.pop()
+        self._heapify_down(len(self.li), 0)
 
-    def _heapify_down(self, index):
-        smallest = index
-        left = 2 * index + 1
-        right = 2 * index + 2
-        if left < len(self.heap) and self.heap[left] < self.heap[smallest]:
+    def _heapify_down(self, l, index):
+        smallest, left, right = index, (2*index) + 1, (2*index) + 2
+        if left < l and self.li[left] < self.li[smallest]:
             smallest = left
-        if right < len(self.heap) and self.heap[right] < self.heap[smallest]:
+        if right < l and self.li[right] < self.li[smallest]:
             smallest = right
         if smallest != index:
-            self.heap[index], self.heap[smallest] = self.heap[smallest], self.heap[index]
-            self._heapify_down(smallest)
+            self.li[index], self.li[smallest] = self.li[smallest], self.li[index]
+            self._heapify_down(l, smallest)
     
     def heap_sort(self):
-        sorted_list = []
-        temp_heap = self.heap[:]
-        while self.heap:
-            sorted_list.append(self.remove())
-        self.heap = temp_heap
-        print(sorted_list)
+        for i in range(len(self.li)-1, 0, -1):
+            self.li[i], self.li[0] = self.li[0], self.li[i]
+            self._heapify_down(i, 0)
+        self.li.sort()
+        print(self.li)
 
 
+li = [10, 5, 40, 15, 20, 2]
 min_heap = MinHeap()
-min_heap.insert(10)
-min_heap.insert(5)
-min_heap.insert(20)
-min_heap.insert(2)
-print(min_heap.heap)
+for i in li:
+    min_heap.insert(i)
 
+print(min_heap.li)
 min_heap.heap_sort()
 # min_heap.remove()
-# print(min_heap.heap)
-# min_heap.print_sort()
 

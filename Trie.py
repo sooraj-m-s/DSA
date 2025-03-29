@@ -53,5 +53,7 @@ class Trie:
 trie = Trie()
 trie.insert('Hello World')
 trie.insert('Hello Namaste')
-trie.delete('Hello World')
+trie.insert('Welcome')
+# trie.delete('Hello World')
 trie.print_words()
+

@@ -334,12 +334,14 @@
 
 # -----------------------------------------------------------------  sort dictionary
 
-# dict = {20: 3, 30: 1, 10: 2}
+# dic = {20: 3, 30: 1, 10: 2}
 
-# sorted_dict = sorted(dict.items(), key=lambda x:x[0])
+# sorted_dict = sorted(dic.items(), key=lambda x:x[0])
 # print(sorted_dict)
 
 
 
 # -----------------------------------------------------------------  
+
+
 

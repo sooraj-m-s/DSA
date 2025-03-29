@@ -55,3 +55,4 @@ bt = BinaryTree(3)
 bt.insert_val(5)
 bt.insert_val(10)
 bt.pre_order()
+

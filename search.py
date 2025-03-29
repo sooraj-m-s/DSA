@@ -31,3 +31,4 @@ if linear_search(li, target):
     print(f'Value {target} is found in the array.')
 else:
     print(f'Value not in the array')
+

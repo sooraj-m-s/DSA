@@ -1,62 +1,79 @@
+li = [2, 7, 4, 5, 8, 3, 12]
+
+
 class Stack:
    def __init__(self):
-       self.data = []
+       self.li = []
   
-   def push(self, data):
-       self.data.append(data)
+   def push(self, val):
+       self.li.append(val)
   
    def pop(self):
-       if self.data:
-           return self.data.pop()
+       if self.li:
+           return self.li.pop()
        return 'Stack is empty.'
   
    def peek(self):
-       if self.data:
-           return self.data[-1]
+       if self.li:
+           return self.li[-1]
        return 'Stack is empty.'
   
-   def is_empty(self):
-       return len(self.data) == 0
-  
    def size(self):
-       return len(self.data) + 1
+       print('Size of the Stack is', len(self.li))
+       return
 
 
 stack = Stack()
-stack.push(2)
-stack.push(3)
-stack.push(4)
-print(stack.pop())
+for i in li:
+    stack.push(i)
+# print(stack.pop())
 print(stack.peek())
-print(stack.size())
+stack.size()
+print(stack.li)
 
 
 class Queue:
    def __init__(self):
-       self.data = []
+       self.li = []
   
-   def enqueue(self, data):
-       self.data += [data]
+   def enqueue(self, val):
+       self.li += [val]
   
    def dequeue(self):
-       self.data = self.data[1:]
+       if self.li:
+        self.li = self.li[1:]
   
    def peek(self):
-       return self.data[0]
-  
-   def is_empty(self):
-       return len(self.head) == 0
+       return self.li[0]
   
    def size(self):
-       return len(self.head) + 1
-  
-   def display(self):
-       return self.data
+       print('Size of the Queue is', len(self.li))
+       return
 
 
 q = Queue()
-q.enqueue(1)
-q.enqueue(2)
-print(q.display())
+for i in li:
+    q.enqueue(i)
 q.dequeue()
-print(q.display())
+print(q.li)
+
+
+class PriorityQueue:
+    def __init__(self):
+        self.li = []
+    
+    def enqueue(self, priority, val):
+        self.li.append([priority, val])
+        self.li.sort()
+    
+    def dequeue(self):
+        if self.li:
+            self.li = self.li[1:]
+
+
+pq = PriorityQueue()
+for i, j in enumerate(li, start=1):
+    pq.enqueue(i, j)
+
+print(pq.li)
+
