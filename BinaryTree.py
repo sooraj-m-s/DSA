@@ -21,10 +21,7 @@ class BinaryTree:
                 queue.append(node.rchild)
 
     def delete_val(self, data):
-        queue = [self]
-        target = None
-        last = None
-        parent_last = None
+        queue, target, parent_last = [self], None, None
         while queue:
             last = queue.pop(0)
             if last.data == data:

@@ -39,8 +39,7 @@ def DFS(start, graph):
     if start not in graph:
         print(start, 'is not present in the graph!')
         return
-    visited = [start]
-    stack = [start]
+    visited, stack = [start], [start]
     while stack:
         node = stack.pop()
         print(node, '-->', end=' ')
@@ -59,8 +58,7 @@ def BFS(start, graph):
     if start not in graph:
         print(start, 'is not present in the graph!')
         return
-    visited = [start]
-    queue = [start]
+    visited, queue = [start], [start]
     while queue:
         node = queue.pop(0)
         print(node, '-->', end=' ')
@@ -75,15 +73,31 @@ def BFS(start, graph):
     else:
         print('\nGraph is a connected graph.')
 
+def shortest_path(start, end):
+    visited = []
+    queue = [[start]]
+    while queue:
+        path = queue.pop(0)
+        node = path[-1]
+        if node == end:
+            return path
+        if node not in visited:
+            for i in graph[node]:
+                queue.append(path + [i])
+            visited.append(node)
+
 
 graph = {}
 add_node('A')
 add_node('B')
 add_node('C')
 add_node('D')
+add_node('E')
 add_edge('A', 'B')
 add_edge('A', 'C')
-add_edge('A', 'D')
+add_edge('C', 'E')
 print(graph)
-DFS('A', graph)
-BFS('A', graph)
+# DFS('A', graph)
+# BFS('A', graph)
+print(shortest_path('A', 'E'))
+

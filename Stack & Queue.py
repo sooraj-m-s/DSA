@@ -32,6 +32,8 @@ stack.size()
 print(stack.li)
 
 
+
+
 class Queue:
    def __init__(self):
        self.li = []
@@ -58,6 +60,8 @@ q.dequeue()
 print(q.li)
 
 
+
+
 class PriorityQueue:
     def __init__(self):
         self.li = []
@@ -76,4 +80,31 @@ for i, j in enumerate(li, start=1):
     pq.enqueue(i, j)
 
 print(pq.li)
+
+
+
+
+class MinStack:
+    def __init__(self):
+        self.stack = []
+        self.min_stack = []
+    
+    def push(self, val):
+        self.stack.append(val)
+        if not self.min_stack or val <= self.min_stack[-1]:
+            self.min_stack.append(val)
+    
+    def pop(self):
+        if self.stack.pop() == self.min_stack[-1]:
+            self.min_stack.pop()
+
+    def get_min(self):
+        return self.min_stack[-1]
+
+
+ms = MinStack()
+for i in li:
+    ms.push(i)
+
+print(ms.stack, ms.min_stack)
 

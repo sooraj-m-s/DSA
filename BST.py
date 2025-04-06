@@ -116,12 +116,24 @@ def are_identical(tree1, tree2):
         return True
     if not tree1 or not tree2:
         return False
-    
     return (
         tree1.data == tree2.data and
         are_identical(tree1.lchild, tree2.lchild) and
         are_identical(tree1.rchild, tree2.rchild)
     )
+
+def sum_of_nodes(root):
+    if root is None:
+        return 0
+    return root.data + sum_of_nodes(root.lchild) + sum_of_nodes(root.rchild)
+
+def sum_of_leaf_nodes(root):
+    if root is None:
+        return 0
+    if root.lchild is None and root.rchild is None:
+        return root.data
+    return sum_of_leaf_nodes(root.lchild) + sum_of_leaf_nodes(root.rchild)
+
 
 bst = BST(10)
 li = [6, 1, 3, 6, 98, 3, 7]
