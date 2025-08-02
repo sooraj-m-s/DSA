@@ -1,6 +1,3 @@
-li = [2, 7, 4, 5, 8, 3, 12]
-
-
 class Stack:
    def __init__(self):
        self.li = []
@@ -23,17 +20,6 @@ class Stack:
        return
 
 
-stack = Stack()
-for i in li:
-    stack.push(i)
-# print(stack.pop())
-print(stack.peek())
-stack.size()
-print(stack.li)
-
-
-
-
 class Queue:
    def __init__(self):
        self.li = []
@@ -53,15 +39,6 @@ class Queue:
        return
 
 
-q = Queue()
-for i in li:
-    q.enqueue(i)
-q.dequeue()
-print(q.li)
-
-
-
-
 class PriorityQueue:
     def __init__(self):
         self.li = []
@@ -73,15 +50,6 @@ class PriorityQueue:
     def dequeue(self):
         if self.li:
             self.li = self.li[1:]
-
-
-pq = PriorityQueue()
-for i, j in enumerate(li, start=1):
-    pq.enqueue(i, j)
-
-print(pq.li)
-
-
 
 
 class MinStack:
@@ -102,9 +70,43 @@ class MinStack:
         return self.min_stack[-1]
 
 
-ms = MinStack()
-for i in li:
-    ms.push(i)
 
-print(ms.stack, ms.min_stack)
+
+if __name__ == "__main__":
+    # Clear the console
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    li = [2, 7, 4, 5, 8, 3, 12]
+
+
+    # Example usage of the data structures
+    stack = Stack()
+    for i in li:
+        stack.push(i)
+    # print(stack.pop())
+    print(stack.peek())
+    stack.size()
+    print(stack.li)
+
+
+    q = Queue()
+    for i in li:
+        q.enqueue(i)
+    q.dequeue()
+    print(q.li)
+
+
+    pq = PriorityQueue()
+    for i, j in enumerate(li, start=1):
+        pq.enqueue(i, j)
+
+    print(pq.li)
+
+
+    ms = MinStack()
+    for i in li:
+        ms.push(i)
+
+    print(ms.stack, ms.min_stack)
 

@@ -38,12 +38,20 @@ class MinHeap:
         print(self.li)
 
 
-li = [10, 5, 40, 15, 20, 2]
-min_heap = MinHeap()
-for i in li:
-    min_heap.insert(i)
 
-print(min_heap.li)
-min_heap.heap_sort()
-# min_heap.remove()
+
+if __name__ == "__main__":
+    # Clear the console
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    # Example usage of MinHeap
+    li = [10, 5, 40, 15, 20, 2]
+    min_heap = MinHeap()
+    for i in li:
+        min_heap.insert(i)
+
+    print(min_heap.li)
+    min_heap.heap_sort()
+    # min_heap.remove()
 

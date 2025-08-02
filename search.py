@@ -18,17 +18,24 @@ def linear_search(li, target):
     return False
 
 
-li = [1, 2, 3, 4, 7, 9]
-target = 7
 
-if binary_search(li, target):
-    print(f'Value {target} is found in the array.')
-else:
-    print(f'Value not in the array')
+if __name__ == "__main__":
+    # Clear the console
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    # Example usage of binary and linear search
+    li = [1, 2, 3, 4, 7, 9]
+    target = 7
+
+    if binary_search(li, target):
+        print(f'Value {target} is found in the array.')
+    else:
+        print(f'Value not in the array')
 
 
-if linear_search(li, target):
-    print(f'Value {target} is found in the array.')
-else:
-    print(f'Value not in the array')
+    if linear_search(li, target):
+        print(f'Value {target} is found in the array.')
+    else:
+        print(f'Value not in the array')
 

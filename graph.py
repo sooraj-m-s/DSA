@@ -87,17 +87,25 @@ def shortest_path(start, end):
             visited.append(node)
 
 
-graph = {}
-add_node('A')
-add_node('B')
-add_node('C')
-add_node('D')
-add_node('E')
-add_edge('A', 'B')
-add_edge('A', 'C')
-add_edge('C', 'E')
-print(graph)
-# DFS('A', graph)
-# BFS('A', graph)
-print(shortest_path('A', 'E'))
+
+
+if __name__ == "__main__":
+    # Clear the console
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    # Example usage
+    graph = {}
+    add_node('A')
+    add_node('B')
+    add_node('C')
+    add_node('D')
+    add_node('E')
+    add_edge('A', 'B')
+    add_edge('A', 'C')
+    add_edge('C', 'E')
+    print(graph)
+    # DFS('A', graph)
+    # BFS('A', graph)
+    print(shortest_path('A', 'E'))
 

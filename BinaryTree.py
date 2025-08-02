@@ -48,8 +48,16 @@ class BinaryTree:
             self.rchild.pre_order()
 
 
-bt = BinaryTree(3)
-bt.insert_val(5)
-bt.insert_val(10)
-bt.pre_order()
+
+
+if __name__ == "__main__":
+    # Clear the console
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    # Example usage
+    bt = BinaryTree(3)
+    bt.insert_val(5)
+    bt.insert_val(10)
+    bt.pre_order()
 

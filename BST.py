@@ -135,25 +135,33 @@ def sum_of_leaf_nodes(root):
     return sum_of_leaf_nodes(root.lchild) + sum_of_leaf_nodes(root.rchild)
 
 
-bst = BST(10)
-li = [6, 1, 3, 6, 98, 3, 7]
-for i in li:
-    bst.insert_val(i)
 
-# bst.del_value(1)
-# bst.search_val(3)
-# print(f'Total value in the BST is {get_count(bst)}')
-# print()
-# bst.get_min()
-# bst.get_max()
-# print('\n', tree_height(bst))
-# bst.del_value(10)
 
-bst.pre_order()
-print()
-bst.in_order()
-print()
-bst.post_order()
-print()
-bst.level_order()
+if __name__ == '__main__':
+    # Clear the console
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    # Example usage of the BST class
+    bst = BST(10)
+    li = [6, 1, 3, 6, 98, 3, 7]
+    for i in li:
+        bst.insert_val(i)
+
+    # bst.del_value(1)
+    # bst.search_val(3)
+    # print(f'Total value in the BST is {get_count(bst)}')
+    # print()
+    # bst.get_min()
+    # bst.get_max()
+    # print('\n', tree_height(bst))
+    # bst.del_value(10)
+
+    bst.pre_order()
+    print()
+    bst.in_order()
+    print()
+    bst.post_order()
+    print()
+    bst.level_order()
 

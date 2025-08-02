@@ -297,7 +297,7 @@
 # def palindrome(word, left, right):
 #     if left >= right:
 #         return True
-#     if word[0] != word[-1]:
+#     if word[left] != word[right]:
 #         return False
 #     return palindrome(word, left + 1, right - 1)
 

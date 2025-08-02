@@ -50,10 +50,18 @@ class Trie:
         self.dfs(self.root, '')
 
 
-trie = Trie()
-trie.insert('Hello World')
-trie.insert('Hello Namaste')
-trie.insert('Welcome')
-# trie.delete('Hello World')
-trie.print_words()
+
+
+if __name__ == "__main__":
+    # Clear the console
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    # Example usage
+    trie = Trie()
+    trie.insert('Hello World')
+    trie.insert('Hello Namaste')
+    trie.insert('Welcome')
+    # trie.delete('Hello World')
+    trie.print_words()
 

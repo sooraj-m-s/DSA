@@ -32,10 +32,18 @@ class HashTable:
                 return
 
 
-h = HashTable()
-h['Name'] = 'Sooraj'
-h['Place'] = 'Pathanamthitta'
-h['Age'] = 27
-del h['Age']
-print(h.li)
+
+
+if __name__ == '__main__':
+    # Clear the console
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    # Example usage
+    h = HashTable()
+    h['Name'] = 'Sooraj'
+    h['Place'] = 'Pathanamthitta'
+    h['Age'] = 20
+    del h['Age']
+    print(h.li)
 
