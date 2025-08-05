@@ -23,26 +23,14 @@ class SinglyLinkedList:
             print(n.data, '-->', end=' ')
             n = n.next
 
-    def insert_empty(self, data):
-        if self.head is not None:
-            print('Linked list is not empty')
-            return
-        self.head = SinglyNode(data)
-        
-    def add_begin(self, data):
-        new_node = SinglyNode(data)
-        new_node.next = self.head
-        self.head = new_node
-
-    def add_end(self, data):
-        new_node = SinglyNode(data)
+    def insert(self, data):
         if self.head is None:
-            self.head = new_node
+            self.head = SinglyNode(data)
         else:
             n = self.head
             while n.next is not None:
                 n = n.next
-            n.next = new_node
+            n.next = SinglyNode(data)
 
     def add_after(self, data, x):
         if self.head is None:
@@ -79,21 +67,6 @@ class SinglyLinkedList:
             return
         new_node.next = n.next
         n.next = new_node
-
-    def del_begin(self):
-        if self.head is None:
-            print('Linked list is empty')
-            return
-        self.head = self.head.next
-
-    def del_end(self):
-        if self.head is None:
-            print('Linked list is empty')
-            return
-        n = self.head
-        while n.next.next is not None:
-            n = n.next
-        n.next = None
 
     def del_value(self, x):
         if self.head is None:
@@ -161,16 +134,7 @@ class DoublyLinkedList:
             print(n.data, '-->', end=' ')
             n = n.pref
 
-    def add_begin(self, data):
-        if self.head is None:
-            self.head = DoublyNode(data)
-        else:
-            new_node = DoublyNode(data)
-            new_node.nref = self.head
-            self.head.pref = new_node
-            self.head = new_node
-
-    def add_end(self, data):
+    def insert(self, data):
         if self.head is None:
             self.head = DoublyNode(data)
         else:
@@ -226,28 +190,6 @@ class DoublyLinkedList:
         n.nref.pref = new_node
         n.nref = new_node
 
-    def del_first(self):
-        if self.head is None:
-            print('Linked list is empty')
-            return
-        if self.head.nref is None:
-            self.head = None
-            return
-        self.head.nref.pref = None
-        self.head = self.head.nref
-
-    def del_last(self):
-        if self.head is None:
-            print('Linked list is empty')
-            return
-        if self.head.nref is None:
-            self.head = None
-            return
-        n = self.head
-        while n.nref is not None:
-            n = n.nref
-        n.pref.nref = None
-
     def del_value(self, x):
         if self.head is None:
             print('Linked list is empty')
@@ -271,6 +213,18 @@ class DoublyLinkedList:
             return
         n.pref.nref = n.nref
         n.nref.pref = n.pref
+    
+    def reverse(self):
+        if self.head is None:
+            print('Linked list is empty')
+            return
+        n = self.head
+        prev = None
+        while n is not None:
+            n.nref, n.pref = n.pref, n.nref
+            prev = n
+            n = n.pref
+        self.head = prev
 
 
 
@@ -282,15 +236,13 @@ if __name__ == '__main__':
 
     # Test Singly and Doubly Linked List
     sll = SinglyLinkedList()
-    sll.insert_empty(1)
-    sll.add_begin(2)
-    sll.add_begin(4)
-    sll.add_end(3)
+    sll.insert(1)
+    sll.insert(2)
+    sll.insert(4)
+    sll.insert(3)
 
     sll.add_after(4, 3)
     sll.add_before(8, 1)
-    sll.del_begin()
-    sll.del_end()
     sll.del_value(6)
     sll.del_center()
     sll.reverseLL()
@@ -300,18 +252,16 @@ if __name__ == '__main__':
 
 
     dll = DoublyLinkedList()
-    dll.add_begin(4)
-    dll.add_begin(5)
-    dll.add_begin(6)
-    dll.add_end(3)
-    dll.add_end(2)
-    dll.add_end(1)
+    dll.insert(4)
+    dll.insert(5)
+    dll.insert(3)
+    dll.insert(2)
+    dll.insert(1)
 
     dll.add_before(0, 4)
     dll.add_after(0, 2)
-    dll.del_first()
-    dll.del_last()
     dll.del_value(1)
+    # dll.reverse()
 
     dll.printLL()
 

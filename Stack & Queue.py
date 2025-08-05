@@ -17,39 +17,6 @@ class Stack:
   
    def size(self):
        print('Size of the Stack is', len(self.li))
-       return
-
-
-class Queue:
-   def __init__(self):
-       self.li = []
-  
-   def enqueue(self, val):
-       self.li += [val]
-  
-   def dequeue(self):
-       if self.li:
-        self.li = self.li[1:]
-  
-   def peek(self):
-       return self.li[0]
-  
-   def size(self):
-       print('Size of the Queue is', len(self.li))
-       return
-
-
-class PriorityQueue:
-    def __init__(self):
-        self.li = []
-    
-    def enqueue(self, priority, val):
-        self.li.append([priority, val])
-        self.li.sort()
-    
-    def dequeue(self):
-        if self.li:
-            self.li = self.li[1:]
 
 
 class MinStack:
@@ -70,6 +37,80 @@ class MinStack:
         return self.min_stack[-1]
 
 
+class Queue:
+   def __init__(self):
+       self.li = []
+  
+   def enqueue(self, val):
+       self.li += [val]
+  
+   def dequeue(self):
+       if self.li:
+        self.li = self.li[1:]
+  
+   def peek(self):
+       return self.li[0]
+  
+   def size(self):
+       print("Size of the Queue is", len(self.li))
+
+
+class PriorityQueue:
+    def __init__(self):
+        self.li = []
+    
+    def enqueue(self, priority, val):
+        self.li.append([priority, val])
+        self.li.sort()
+    
+    def dequeue(self):
+        if self.li:
+            self.li = self.li[1:]
+
+
+class CircularQueue:
+    def __init__(self, k):
+        self.capacity = k
+        self.queue = [None] * self.capacity
+        self.front = 0
+        self.rear = 0
+        self.size = 0
+
+    def enQueue(self, value):
+        if self.capacity == self.size:
+            print("Queue is full")
+            return
+        self.queue[self.rear] = value
+        self.rear = (self.rear + 1) % self.capacity
+        self.size += 1
+
+    def deQueue(self):
+        if self.size == 0:
+            print("Queue is empty")
+            return
+        self.queue[self.front] = None
+        self.front = (self.front + 1) % self.capacity
+        self.size -=1
+
+    def Front(self):
+        if self.size == 0:
+            print("Queue is empty")
+            return
+        return self.queue[self.front]
+
+    def Rear(self):
+        if self.size == 0:
+            print("Queue is empty")
+            return
+        return self.queue[(self.rear - 1) % self.capacity]
+
+    def isEmpty(self):
+        print("Queue is empty" if self.size == 0 else "Queue is not empty")
+
+    def isFull(self):
+        print("Queue is full" if self.size == self.capacity else "Queue is not full")
+
+
 
 
 if __name__ == "__main__":
@@ -79,7 +120,6 @@ if __name__ == "__main__":
 
     li = [2, 7, 4, 5, 8, 3, 12]
 
-
     # Example usage of the data structures
     stack = Stack()
     for i in li:
@@ -88,6 +128,13 @@ if __name__ == "__main__":
     print(stack.peek())
     stack.size()
     print(stack.li)
+
+
+    ms = MinStack()
+    for i in li:
+        ms.push(i)
+
+    print(ms.stack, ms.min_stack)
 
 
     q = Queue()
@@ -104,9 +151,9 @@ if __name__ == "__main__":
     print(pq.li)
 
 
-    ms = MinStack()
-    for i in li:
-        ms.push(i)
+    cq = CircularQueue(4)
+    cq.enQueue(10)
+    cq.enQueue(5)
 
-    print(ms.stack, ms.min_stack)
+    print(cq.queue)
 
