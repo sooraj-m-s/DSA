@@ -31,11 +31,11 @@ class Trie:
             current_node = current_node.children[i]
         current_node.is_end = False
 
-    def dfs(self, node, prefix):
+    def _dfs(self, node, prefix):
         if node.is_end:
             print(prefix)
         for char, child in node.children.items():
-            self.dfs(child, prefix+char)
+            self._dfs(child, prefix+char)
 
     def autocomplete(self, prefix):
         node = self.root
@@ -44,10 +44,10 @@ class Trie:
                 print("No words found with this prefix.")
                 return
             node = node.children[ch]
-        self.dfs(node, prefix)
+        self._dfs(node, prefix)
 
     def print_words(self):
-        self.dfs(self.root, '')
+        self._dfs(self.root, '')
 
 
 

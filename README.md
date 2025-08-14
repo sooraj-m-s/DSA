@@ -1,5 +1,10 @@
 # 📘 Data Structures & Algorithms in Python
 
+[![Repo](https://img.shields.io/badge/repo-DSA-181717?logo=github)](https://github.com/sooraj-m-s/DSA)
+![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
+![OOP](https://img.shields.io/badge/OOP-Object%20Oriented-4B8BBE?logo=code&logoColor=white)
+
 ---
 
 ## 🌟 Overview
@@ -12,15 +17,15 @@ A comprehensive, hands‑on repository of essential Data Structures and Algorith
 
 | Category               | File(s)                   |  
 | ---------------------- | ------------------------- |
-| **Arrays & Strings**   | `sample.py`               |
-| **Linked Lists**       | `linked_list.py`          |
+| **Arrays & Strings**   | `Sample.py`               |
+| **Linked Lists**       | `LinkedList.py`          |
 | **Stacks & Queues**    | `Stack & Queue.py`        |
 | **Trees**              | `BST.py`, `BinaryTree.py` |
-| **Heaps**              | `heap.py`                 |
-| **Hash Tables**        | `hash_table.py`           |
-| **Graphs**             | `graph.py`                |
-| **Searching**          | `search.py`               |
-| **Sorting Algorithms** | `sort.ipynb`              |
+| **Heaps**              | `Heap.py`                 |
+| **Hash Tables**        | `HashTable.py`           |
+| **Graphs**             | `Graph.py`                |
+| **Searching**          | `Search.py`               |
+| **Sorting Algorithms** | `Sort.ipynb`              |
 | **Tries**              | `Trie.py`                 |
 
 ---
@@ -37,32 +42,20 @@ A comprehensive, hands‑on repository of essential Data Structures and Algorith
 ## 📦 Installation
 
 1. **Clone the repository**:
-
    ```bash
    git clone https://github.com/sooraj-m-s/DSA.git
    cd DSA
    ```
 2. **Run Python scripts**:
-
    ```bash
    python sample.py
    ```
 3. **Open Notebook**:
-
    ```bash
    jupyter notebook sort.ipynb
    ```
 
 ---
-
-## 📖 Usage
-
-* Each script is self‑contained with detailed docstrings and comments.
-* Modify or import classes/functions to integrate into your own projects.
-* Explore `sort.ipynb` for interactive demonstrations and visualizations.
-
----
-
 
 
 ## 📞 Contact
