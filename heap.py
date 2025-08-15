@@ -18,9 +18,9 @@ class MinHeap:
         if len(self.li) == 1:
             return self.li.pop()
         self.li[0] = self.li.pop()
-        self._heapify_down(len(self.li), 0)
+        self._heapify_down(len(self.li))
 
-    def _heapify_down(self, l, index):
+    def _heapify_down(self, l, index=0):
         smallest, left, right = index, (2*index) + 1, (2*index) + 2
         if left < l and self.li[left] < self.li[smallest]:
             smallest = left
@@ -33,9 +33,9 @@ class MinHeap:
     def heap_sort(self):
         for i in range(len(self.li)-1, 0, -1):
             self.li[i], self.li[0] = self.li[0], self.li[i]
-            self._heapify_down(i, 0)
-        self.li.sort()
-        print(self.li)
+            self._heapify_down(i)
+        self.li.reverse()
+        return self.li
 
 
 
@@ -52,6 +52,6 @@ if __name__ == "__main__":
         min_heap.insert(i)
 
     print(min_heap.li)
-    min_heap.heap_sort()
+    print(min_heap.heap_sort())
     # min_heap.remove()
 
