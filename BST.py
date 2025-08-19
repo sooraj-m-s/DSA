@@ -134,6 +134,14 @@ def sum_of_leaf_nodes(root):
         return root.data
     return sum_of_leaf_nodes(root.lchild) + sum_of_leaf_nodes(root.rchild)
 
+def clone_bst(root):
+    if root is None:
+        return None
+    new_root = BST(root.data)
+    new_root.lchild = clone_bst(root.lchild)
+    new_root.rchild = clone_bst(root.rchild)
+    return new_root
+
 
 
 
