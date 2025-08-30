@@ -142,6 +142,54 @@ def clone_bst(root):
     new_root.rchild = clone_bst(root.rchild)
     return new_root
 
+def is_bst(node, min_val=float('-inf'), max_val=float('inf')):
+    if node is None:
+        return True
+    if not (min_val < node.data < max_val):
+        return False
+    return is_bst(node.lchild, min_val, node.data) and is_bst(node.rchild, node.data, max_val)
+
+def second_largest(root):
+    if not root or (not root.lchild and not root.rchild):
+        return None
+    parent = None
+    current = root
+    while current.rchild:
+        parent = current
+        current = current.rchild
+    if current.lchild:
+        current = current.lchild
+        while current.rchild:
+            current = current.rchild
+        return current.data
+    if parent:
+        return parent.data
+    return None
+
+def k_largest(root, k):
+    def reverse_inorder(node, k):
+        if not node or len(result) >= k:
+            return
+        reverse_inorder(node.rchild, k)
+        result.append(node.data)
+        reverse_inorder(node.lchild, k)
+    result = []
+    reverse_inorder(root, k)
+    return result[k-1] if len(result) >= k else None
+
+def find_depth(root, data):
+    depth = 0
+    current = root
+    while current:
+        if current.data == data:
+            return depth
+        elif current.data < data:
+            current = current.rchild
+        else:
+            current = current.lchild
+        depth += 1
+    return -1
+
 
 
 
